@@ -4,9 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cesium demo</title>
+    <script src="https://unpkg.com/@esri/arcgis-rest-request@4/dist/bundled/request.umd.js"></script>
+    <script src="https://unpkg.com/@esri/arcgis-rest-routing@4/dist/bundled/routing.umd.js"></script>
+
   </head>
   <body>
-    <div id="cesiumContainer"></div>
+    <div id="cesiumContainer">
+      <button id="viewSwitcher">Show Google 3D tiles</button>
+    </div>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
