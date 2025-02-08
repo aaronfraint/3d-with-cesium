@@ -30,13 +30,17 @@ viewer.camera.flyTo({
   },
 });
 
-// Load Google 3d buildings
-const google3dtiles = await Cesium3DTileset.fromIonAssetId(2275207);
-console.log(google3dtiles);
-viewer.scene.primitives.add(google3dtiles);
-google3dtiles.show = false;
+async function setup() {
+  // Load Google 3d buildings
+  const google3dtiles = await Cesium3DTileset.fromIonAssetId(2275207);
+  console.log(google3dtiles);
+  viewer.scene.primitives.add(google3dtiles);
+  google3dtiles.show = false;
 
-// wire up the additional functionality
-dataFromIonTiles(viewer);
-esriRoutes(viewer);
-demoShowcase(google3dtiles);
+  // wire up the additional functionality
+  await dataFromIonTiles(viewer);
+  await esriRoutes(viewer);
+  demoShowcase(google3dtiles);
+}
+
+setup();
