@@ -5,33 +5,38 @@ import {
   Math as CesiumMath,
   Terrain,
   Viewer,
-  createOsmBuildingsAsync,
   Ion,
+  Cesium3DTileset,
 } from "cesium";
 import "cesium/Build/Cesium/Widgets/widgets.css";
-
-// import { useState } from 'react'
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
 import "./App.css";
+
+import dataFromIonTiles from "./step3IonHostedData";
+import esriRoutes from "./step4ThirdPartySourceESRIRoutes";
+import demoShowcase from "./step5DemoShowcase";
 
 Ion.defaultAccessToken = import.meta.env.VITE_ION_TOKEN;
 
-// Initialize the Cesium Viewer in the HTML element with the `cesiumContainer` ID.
 const viewer = new Viewer("cesiumContainer", {
   terrain: Terrain.fromWorldTerrain(),
 });
 
-// Fly the camera to San Francisco at the given longitude, latitude, and height.
+// Fly the camera to the flatiron building
 viewer.camera.flyTo({
-  destination: Cartesian3.fromDegrees(-122.4175, 37.655, 500),
+  destination: Cartesian3.fromDegrees(-73.99, 40.73, 300),
   orientation: {
-    heading: CesiumMath.toRadians(0.0),
-    pitch: CesiumMath.toRadians(-15.0),
+    heading: CesiumMath.toRadians(0),
+    pitch: CesiumMath.toRadians(0),
   },
 });
 
-// Add Cesium OSM Buildings, a global 3D buildings layer.
-createOsmBuildingsAsync().then((buildingTileset) => {
-  viewer.scene.primitives.add(buildingTileset);
-});
+// Load Google 3d buildings
+const google3dtiles = await Cesium3DTileset.fromIonAssetId(2275207);
+console.log(google3dtiles);
+viewer.scene.primitives.add(google3dtiles);
+google3dtiles.show = false;
+
+// wire up the additional functionality
+await dataFromIonTiles(viewer);
+await esriRoutes(viewer);
+demoShowcase(google3dtiles);
