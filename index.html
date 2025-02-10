@@ -10,7 +10,25 @@
   </head>
   <body>
     <div id="cesiumContainer">
-      <button id="viewSwitcher">Show Google 3D tiles</button>
+      <div id="info">
+        <h1>Cesium demo</h1>
+
+        <p>This demo showcases a variety of functions:</p>
+        <ul>
+          <li>The default map view shows a 3D model tiled and loaded via Cesium Ion</li>
+          <li>Clicking twice on the map will drop start/end pins, and then displays the shortest route, calculated via ESRI's routing API</li>
+          <li>Clicking the button below will toggle on/off the Google 3D Buildings tileset, loaded via Cesium Ion</li>
+        </ul>
+        <p> <a href="https://github.com/aaronfraint/3d-with-cesium" target="_blank">View the code on GitHub</a>
+          </p>
+
+        <div id="button-box">
+          <button id="viewSwitcher">Show Google 3D tiles</button>
+        </div>
+
+
+      </div>
+
     </div>
     <script type="module" src="/src/main.js"></script>
   </body>
