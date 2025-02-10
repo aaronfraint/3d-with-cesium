@@ -33,7 +33,6 @@ viewer.camera.flyTo({
 async function setup() {
   // Load Google 3d buildings
   const google3dtiles = await Cesium3DTileset.fromIonAssetId(2275207);
-  console.log(google3dtiles);
   viewer.scene.primitives.add(google3dtiles);
   google3dtiles.show = false;
 
