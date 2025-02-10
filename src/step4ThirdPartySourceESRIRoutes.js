@@ -31,7 +31,7 @@ export default async function esriRoutes(viewer) {
       verticalOrigin: VerticalOrigin.BOTTOM,
       heightReference: HeightReference.CLAMP_TO_GROUND,
       image: pinBuilder
-        .fromText("1", Color.fromCssColorString("#348bdb"), 48)
+        .fromText("Start", Color.fromCssColorString("#348bdb"), 48)
         .toDataURL(),
     },
   });
@@ -43,7 +43,7 @@ export default async function esriRoutes(viewer) {
       verticalOrigin: VerticalOrigin.BOTTOM,
       heightReference: HeightReference.CLAMP_TO_GROUND,
       image: pinBuilder
-        .fromText("2", Color.fromCssColorString("#348bdb"), 48)
+        .fromText("End", Color.fromCssColorString("#348bdb"), 48)
         .toDataURL(),
     },
   });
