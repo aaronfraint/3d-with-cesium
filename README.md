@@ -1,8 +1,8 @@
-# React + Vite
+# 3D with Cesium
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+To run this application locally:
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. Clone the repo with `git clone https://github.com/aaronfraint/3d-with-cesium`
+2. Create a `.env` file at the root of the local repo that defines the Ion API key and ArcGIS Rest API key (routing) using names `VITE_ION_TOKEN` and `VITE_ESRI_KEY`, respectively
+3. Install the necessary libraries with `npm install`
+4. Run a local instance of the app with `npm run dev`
